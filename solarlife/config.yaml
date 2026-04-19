@@ -1,13 +1,13 @@
 name: "SolarLife BLE MPPT"
-version: "1.0.0"
+version: "1.0.1"
 slug: "solarlife"
 description: "Reads SolarLife MPPT over BLE and sends data to MQTT"
 startup: services
 boot: auto
 init: false
 host_network: true
-privileged:
-  - NET_ADMIN
+privileged: true
+full_access: true
 arch:
   - aarch64
 options:
