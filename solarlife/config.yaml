@@ -6,8 +6,8 @@ startup: services
 boot: auto
 init: false
 host_network: true
-privileged: true
-full_access: true
+privileged:
+  - NET_ADMIN
 arch:
   - aarch64
 options:
