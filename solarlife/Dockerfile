@@ -7,12 +7,13 @@ RUN apk add --no-cache \
     bluez \
     bluez-dev \
     glib-dev \
-    jq
+    jq \
+    pkgconf
 
 RUN git clone https://github.com/majonezz/solarlife.git /tmp/solarlife-src
 
 WORKDIR /tmp/solarlife-src
-RUN make
+RUN gcc $(pkg-config --cflags glib-2.0) -Wall *.c -o solarlife $(pkg-config --libs glib-2.0)
 
 RUN cp /tmp/solarlife-src/solarlife /usr/bin/solarlife && chmod +x /usr/bin/solarlife
 
